@@ -65,7 +65,7 @@ For detailed information about the project, see `report.tex`.
 
 ## Team
 
-Created by [Caleb-Gawthroupe](https://github.com/Caleb-Gawthroupe) and Arush Gupta
+Created by Caleb-Gawthroupe and Arush Gupta
 
 ## License
 
