@@ -63,9 +63,9 @@ Customize your game experience by editing `game_data.json`. This file contains:
 
 For detailed information about the project, see `report.tex`.
 
-## Author
+## Team
 
-Created by [Caleb-Gawthroupe](https://github.com/Caleb-Gawthroupe)
+Created by [Caleb-Gawthroupe](https://github.com/Caleb-Gawthroupe) and Arush Gupta
 
 ## License
 
