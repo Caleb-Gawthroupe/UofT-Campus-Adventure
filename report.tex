@@ -1,0 +1,274 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+
+\title{CSC111 Winter 2026 Project 1}
+\author{Caleb Gawthroupe, Arush Gupta}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Running the game}
+The Game is Run By Running adventure.py
+
+\section*{Game Map}
+\begin{verbatim}
+1  2  3  -1
+4  5  6  7
+9  10 11 -1
+-1 -1 12 -1
+\end{verbatim}
+Starting location is: 1 (OISE)
+
+\section*{Game solution}
+List of commands to win the game:
+\begin{verbatim}
+overwrite (If a save file exists)
+1
+5  (Select Speed: 5 points)
+2
+5  (Select Attack: 5 points)
+go east
+go east
+take stale bread
+go west
+go south
+go south
+go east
+use stale bread
+take t-card
+go west
+go west
+go west
+drop t-card
+go east
+go east
+go east
+go south
+take usb stick
+go north
+go west
+go west
+attack
+attack
+attack
+take lucky mug
+go north
+attack
+attack
+attack
+attack
+attack
+take laptop charger
+go north
+drop usb stick
+drop lucky mug
+drop laptop charger
+\end{verbatim}
+
+\section*{Lose condition(s)}
+Description of how to lose the game:
+The player loses if they exceed the maximum number of steps allowed (50 moves).
+**Speed Mechanic:** The number of steps consumed per action is calculated as $6 - \text{Speed}$.
+If a player has 0 Speed, each move costs 6 steps (very slow). If they have 5 Speed (max), each move costs only 1 step.
+Each turn in combat also takes a step using this formula.
+If total steps exceed the limit, the game ends with a "Took too long! The Assignment is passed due, and you no longer can make POST." message.
+
+List of commands to lose (taking too long):
+\begin{verbatim}
+overwrite (If a save file exists)
+1
+5
+2
+5
+3
+0
+go east
+go west
+go east
+go west
+go east
+(Game Over due to step limit)
+
+You can also lose by dying to an enemy:
+
+\end{verbatim}
+
+You can also lose by dying to an enemy:
+
+\begin{verbatim}
+overwrite (If a save file exists)
+1
+5
+2
+5
+3
+0
+go south
+attack
+go south
+attack
+attack
+go east
+go east
+attack
+(Game Over due to death)
+
+\end{verbatim}
+
+Which parts of your code are involved in this functionality:
+\texttt{AdventureGame.check\_steps} method checks the limit.
+\texttt{AdventureGame.increment\_steps} calculates cost: \texttt{self.steps += 6 - player.speed}.
+\texttt{Player.add\_points} handles the initial stat selection.
+Combat system explained under augmentations.
+
+
+\section*{Inventory}
+
+\begin{enumerate}
+\item All location IDs that involve items in the game:
+1, 2, 3, 4, 7, 8, 9, 11, 12
+
+\item Item data:
+\begin{enumerate}
+\item For Item 1:
+\begin{itemize}
+\item Item name: Toonie
+\item Item start location ID: 1
+\item Item target location ID: 4
+\end{itemize}
+\item For Item 2:
+\begin{itemize}
+\item Item name: Lucky Mug
+\item Item start location ID: -1 (Held by Barista at Loc 9)
+\item Item target location ID: 4
+\end{itemize}
+\item For Item 3:
+\begin{itemize}
+\item Item name: Stale Bread
+\item Item start location ID: 3
+\item Item target location ID: 4
+\end{itemize}
+\item For Item 4:
+\begin{itemize}
+\item Item name: T-Card
+\item Item start location ID: -1 (Held by Giant Goose at Loc 11)
+\item Item target location ID: 8
+\end{itemize}
+\item For Item 5:
+\begin{itemize}
+\item Item name: USB Stick
+\item Item start location ID: -1 (Spawns at Unlock)
+\item Item target location ID: 8
+\end{itemize}
+\item For Item 6:
+\begin{itemize}
+\item Item name: Laptop Charger
+\item Item start location ID: -1 (Held by Stressed Out Student at Loc 4)
+\item Item target location ID: 8
+\end{itemize}
+\item For Item 7:
+\begin{itemize}
+\item Item name: Redbull
+\item Item start location ID: 7
+\item Item target location ID: 8
+\end{itemize}
+\item For Item 8:
+\begin{itemize}
+\item Item name: Hot Coffee
+\item Item start location ID: 2
+\item Item target location ID: 8
+
+
+\item Exact command(s) that should be used to pick up an item:
+\texttt{take stale bread}, \texttt{take t-card}.
+    To drop: \texttt{drop usb stick}. \textbf{Full Demo Included in Puzzle Enhancement Section}
+
+    \item Parts of code involved in handling the \texttt{inventory} command:
+    \texttt{AdventureGame.check\_inventory} in \texttt{adventure.py}, and \texttt{Player.inventory} attribute in \texttt{game\_entities.py}.
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+
+\section*{Score}
+\begin{enumerate}
+
+    \item Players earn score by placing specific items at their target locations. The game calculates score based on \texttt{item.target\_points} if \texttt{item.position == item.target\_position}.
+    First location to increase score: Location 8 (Bahen) by dropping the T-Card (50 points).
+
+    \item Which parts of your code are involved in handling the \texttt{score} functionality:
+    \texttt{AdventureGame.get\_score} method in \texttt{adventure.py}.
+\end{enumerate}
+
+\section*{Enhancements}
+\begin{enumerate}
+    \item Enhancement \#1: Turn-Based Combat System
+    \begin{itemize}
+        \item Brief description: A fully interactive combat system where players can fight specific enemies. The system includes stats (Attack, Defense, Health), a turn loop, and player options (Attack, Flee, Inventory). Items are implemented to have combat effects, either healing the player or damaging the enemies. Enemies have distinct attack patterns (e.g., alternating strong/weak attacks) and drop loot items (like the \texttt{lucky mug}) upon defeat.
+        \item Complexity level: High
+        \item Reasons: This enhancement required implementing a completely new state loop separate from the main game loop. We had to create a new \texttt{Enemy} class in \texttt{game\_entities.py} with health/attack attributes. The \texttt{combat} function in \texttt{adventure.py} handles user input dynamically, calculates damage based on player strength and enemy stats, and modifies the game state (removing enemies, adding items) in real-time. It also interacts with the inventory system for "Combat Items" like \texttt{stale bread}.
+        \item Parts of the code which are involved: \texttt{adventure.py} (combat function), \texttt{game\_entities.py} (Enemy class), (Player class), (Item Class)
+        \item Demo:
+        \begin{verbatim}
+        combat_demo = [
+        "go east",  # to ROM (2)
+        "go east",  # to Vic (3) - Trigger TA Combat
+        # Combat Commands
+        "attack",
+        "attack",
+        # End Combat
+        "quit"
+    ]
+    \end{verbatim}
+    \end{itemize}
+
+    \item Enhancement \#2: Save/Load System
+    \begin{itemize}
+        \item Brief description: Allows players to save their progress to a JSON file and load it later. This system persists the player's stats (health, strength), inventory contents, current location, and the state of the world (which enemies are dead, which items have been moved).
+        \item Complexity level: Medium
+        \item Reasons: Required understanding and implementing JSON serialization for custom Python objects. We had to modify \texttt{adventure.py} to traverse the current game state, serializing the \texttt{Player} object and the modified list of \texttt{Location} objects (items/enemies) into a dictionary structure. The loading process involved reconstructing these objects and restoring links, ensuring the game picks up exactly where it left off without errors.
+        \item Parts of the code which are involved: \texttt{adventure.py} (\texttt{save\_game}, \texttt{load\_game}, \texttt{\_load\_game\_data}), \texttt{save\_game.json}.
+        \item \textbf{No Full Demo Included, As The Save File works from first command, after save file has been created}
+
+    \end{itemize}
+
+    \item Enhancement \#3: Puzzle \& Win Condition Check
+    \begin{itemize}
+        \item Brief description: We implemented a multi-stage puzzle ("The Goose \& T-Card") and a complex win condition. The player must first solve a combat puzzle (using Bread on Goose) to get a key item (T-Card), then use that item at a specific location to unlock the final quest item (USB).
+        \item Complexity level: Medium
+        \item Reasons: It required event-based logic in the \texttt{drop} command (checking if T-Card is dropped at Bahen, modify Exam Center items). The Win Condition is also non-trivial, checking for the simultaneous presence of three distinct items at the start location, requiring the player to manage inventory space and travel time efficiently.
+        \item Name the parts of the code which are involved: \texttt{adventure.py} (\texttt{check\_win}, \texttt{drop} logic/puzzle triggers).
+        \item Demo:
+        \begin{verbatim}
+        puzzle_demo = [
+        "go east",  # to ROM (2)
+        "go east",  # to Vic (3) - Combat
+        "attack", "attack",
+        "take stale bread",
+        "go south",
+        "go south",  # to King's Circle (11) - Combat
+        "inventory",
+        "stale bread",
+        "take t-card",
+        "go west",  # to UC (10)
+        "go west",  # to Sid's (9) - Combat Barista
+        "attack", "attack",
+        "go west",  # to Bahen (8)
+        "drop t-card",  # Puzzle
+        "go east",  # to Sid's (9)
+        "go east",  # to UC (10)
+        "go east",  # to King's Circle (11)
+        "go south",  # to Exam Center (12)
+        "take usb stick",
+        "quit"
+    ]
+    \end{verbatim}
+    \end{itemize}
+\end{enumerate}
+
+
+\end{document}

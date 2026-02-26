@@ -1,0 +1,309 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "OISE",
+      "brief_description": "You are at the Ontario Institute for Studies in Education.",
+      "long_description": "You are at the Ontario Institute for Studies in Education. The lobby is filled with posters about modern pedagogy. To the East lies the ROM, and to the South, the massive Robarts library looms. Another Poster reads 'Geese in King's Circle are hungry for bakery items'.",
+      "available_commands": {
+        "go east": 2,
+        "go south": 4,
+        "take toonie": 1
+      },
+      "items": [
+        "toonie"
+      ],
+      "enemies": []
+    },
+    {
+      "id": 2,
+      "name": "Royal Ontario Museum",
+      "brief_description": "You are standing outside the ROM's crystal entrance.",
+      "long_description": "You are standing outside the ROM's crystal entrance. The sharp angles of the Bloor Street facade tower over you. Tourists are taking photos of the architecture. You can head West back to OISE, East toward Vic, or South into Trinity.",
+      "available_commands": {
+        "go west": 1,
+        "go east": 3,
+        "go south": 5,
+        "take hot coffee": 2
+      },
+      "items": ["hot coffee"],
+      "enemies": []
+    },
+    {
+      "id": 3,
+      "name": "Victoria College",
+      "brief_description": "You are at the historic Victoria College.",
+      "long_description": "You are at the historic Victoria College. The Romanesque red sandstone buildings feel peaceful. A small garden is nearby. Your only exits are West toward the ROM or South toward Queen's Park.",
+      "available_commands": {
+        "go west": 2,
+        "go south": 6,
+        "take stale bread": 3
+      },
+      "items": [
+        "stale bread"
+      ],
+      "enemies": [
+        "Sleep Deprived TA"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Robarts",
+      "brief_description": "You are at the base of Robarts Library.",
+      "long_description": "You are at the base of Robarts Library. The 'Fort Book' concrete giant towers above you. Students are rushing in with coffee. You can go North to OISE, East to Trinity, or South to Sid's Cafe.",
+      "available_commands": {
+        "go north": 1,
+        "go east": 5,
+        "go south": 9
+      },
+      "items": [],
+      "enemies": [
+        "Stressed Out Student"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Trinity College",
+      "brief_description": "You are in the quiet quad of Trinity College.",
+      "long_description": "You are in the quiet quad of Trinity College. The atmosphere is academic and serene. You see the chapel in the distance. Paths lead North to the ROM, West to Robarts, East to Hart House, and South to UC.",
+      "available_commands": {
+        "go north": 2,
+        "go west": 4,
+        "go east": 6,
+        "go south": 10
+      },
+      "items": [],
+      "enemies": []
+    },
+    {
+      "id": 6,
+      "name": "Hart House",
+      "brief_description": "You are outside Hart House.",
+      "long_description": "You are outside Hart House. The sound of a piano echoes from a window. This student hub is bustling. You can move North to Vic, West to Trinity, East to Queen's Park, or South to King's Circle.",
+      "available_commands": {
+        "go north": 3,
+        "go west": 5,
+        "go east": 7,
+        "go south": 11
+      },
+      "items": [],
+      "enemies": []
+    },
+    {
+      "id": 7,
+      "name": "Queen’s Park",
+      "brief_description": "You are at the edge of Queen's Park.",
+      "long_description": "You are at the edge of Queen's Park. The legislative building is visible through the trees. Squirrels are everywhere. You can go North to Vic or West back toward Hart House.",
+      "available_commands": {
+        "go north": 3,
+        "go west": 6,
+        "take redbull": 7
+      },
+      "items": ["redbull"],
+      "enemies": []
+    },
+    {
+      "id": 8,
+      "name": "Bahen",
+      "brief_description": "You are outside the Bahen Centre.",
+      "long_description": "You are outside the Bahen Centre. The high-tech home of Computer Science. You see students debugging on the benches. Strangely, the only path from here is East into Sid's Cafe.",
+      "available_commands": {
+        "go east": 9
+      },
+      "items": [],
+      "enemies": []
+    },
+    {
+      "id": 9,
+      "name": "Sid’s Cafe",
+      "brief_description": "You are in Sidney Smith Hall's cafeteria.",
+      "long_description": "You are in Sidney Smith Hall's cafeteria. The smell of stir-fry and coffee fills the air. It's very loud. You can go North to Robarts, West to Bahen, or East to University College.",
+      "available_commands": {
+        "go north": 4,
+        "go west": 8,
+        "go east": 10
+      },
+      "items": [],
+      "enemies": [
+        "Barista"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "University College",
+      "brief_description": "You are at the University College courtyard.",
+      "long_description": "You are at the University College courtyard. Historic gargoyles look down at you. This is the heart of campus. You can go North to Trinity, West to Sid's, or East to King's Circle.",
+      "available_commands": {
+        "go north": 5,
+        "go west": 9,
+        "go east": 11
+      },
+      "items": [],
+      "enemies": []
+    },
+    {
+      "id": 11,
+      "name": "King’s Circle",
+      "brief_description": "You are standing on King's College Circle.",
+      "long_description": "You are standing on King's College Circle. A massive green field with a perfect view of the CN Tower. A giant Canada Goose is hissing at everyone. Paths lead North to Hart House, West to UC, and South to the Exam Center.",
+      "available_commands": {
+        "go north": 6,
+        "go west": 10,
+        "go south": 12
+      },
+      "items": [],
+      "enemies": [
+        "Giant Goose"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Exam Center",
+      "brief_description": "You are outside the Exam Center on McCaul.",
+      "long_description": "You are outside the Exam Center on McCaul. The building looks intimidating. A few students are frantically flipping through notes. The only way back is North to King's Circle.",
+      "available_commands": {
+        "go north": 11
+      },
+      "items": [],
+      "enemies": []
+    }
+  ],
+  "items": [
+    {
+      "name": "toonie",
+      "description": "There is a toonie on the ground. Someone must have dropped it.",
+      "start_position": 1,
+      "target_position": 4,
+      "target_points": 5,
+      "weight": 0.2,
+      "combat_use": 0,
+      "strength": 0
+    },
+    {
+      "name": "lucky mug",
+      "description": "The luckiest of mugs. I wonder what drinking from it would do.",
+      "start_position": -1,
+      "target_position": 4,
+      "target_points": 5,
+      "weight": 1.5,
+      "combat_use": 1,
+      "strength": 3
+    },
+    {
+      "name": "stale bread",
+      "description": "A piece of very stale bread. Maybe the birds would like it.",
+      "start_position": 3,
+      "target_position": 4,
+      "target_points": 0,
+      "weight": 0.5,
+      "combat_use": 2,
+      "strength": 0
+    },
+    {
+      "name": "t-card",
+      "description": "A student T-Card. Essential for getting around campus.",
+      "start_position": -1,
+      "target_position": 8,
+      "target_points": 50,
+      "weight": 0.1,
+      "combat_use": 0,
+      "strength": 0
+    },
+    {
+      "name": "usb stick",
+      "description": "A USB stick containing the final assignment solution.",
+      "start_position": -1,
+      "target_position": 8,
+      "target_points": 100,
+      "weight": 0.1,
+      "combat_use": 0,
+      "strength": 0
+    },
+    {
+      "name": "laptop charger",
+      "description": "A standard laptop charger. Lucky find, my laptop is dead.",
+      "start_position": -1,
+      "target_position": 8,
+      "target_points": 100,
+      "weight": 3,
+      "combat_use": 0,
+      "strength": 0
+    },
+    {
+      "name": "redbull",
+      "description": "A can of redbull, everyone knows it gives you wings, I wonder what it would do if used in combat.",
+      "start_position": 7,
+      "target_position": 8,
+      "target_points": 100,
+      "weight": 5,
+      "combat_use": 1,
+      "strength": 5
+    },
+    {
+      "name": "hot coffee",
+      "description": "Some hot coffee. I woudln't want this to splash on me.",
+      "start_position": 2,
+      "target_position": 8,
+      "target_points": 100,
+      "weight": 5,
+      "combat_use": 1,
+      "strength": 5
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Sleep Deprived TA",
+      "max_health": 10,
+      "current_health": 10,
+      "attack": 2,
+      "attack_pattern": [
+        "small",
+        "big",
+        "small"
+      ],
+      "items": []
+    },
+    {
+      "name": "Giant Goose",
+      "max_health": 50,
+      "current_health": 50,
+      "attack": 10,
+      "attack_pattern": [
+        "big",
+        "big",
+        "big"
+      ],
+      "items": [
+        "t-card"
+      ]
+    },
+    {
+      "name": "Stressed Out Student",
+      "max_health": 5,
+      "current_health": 5,
+      "attack": 6,
+      "attack_pattern": [
+        "big",
+        "small",
+        "small",
+        "small"
+      ],
+      "items": [
+        "laptop charger"
+      ]
+    },
+    {
+      "name": "Barista",
+      "max_health": 8,
+      "current_health": 8,
+      "attack": 3,
+      "attack_pattern": [
+        "small",
+        "big"
+      ],
+      "items": [
+        "lucky mug"
+      ]
+    }
+  ]
+}
