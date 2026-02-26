@@ -1,2 +1,2 @@
-# CSC111_Project_1
+# UofT Campus Adventure
 Project
